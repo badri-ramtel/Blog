@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>{% block title %}Blogs-View | Blogs {% endblock title %}</title>
+
+</head>
+<body>
+    <div class="container text-center" style="width: 100%; border: 2px solid red;">
+        <div class="card" style="border-color: brown; margin: 10px;"> 
+            <div class="card-body">
+                <h3 class="card-title">{{bloger.title}}</h3>
+                <p class="card-text">{{bloger.introduction}}</p>
+                <p class="card-text">{{bloger.body_list}}</p>
+                <p class="card-text">{{bloger.conclusion}}</p>
+            </div>
+        </div>
+  
+    </div>
+</body>
+</html>
+

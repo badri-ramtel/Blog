@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %} Home | Blog {% endblock title %}
+
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li {% if message.tags %} class="{{message.tags}}" {% endif %}> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% for item in blogs %}
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <p class="card-text">{{ item.introduction }}</p>
+                <p class="card-text"><span>Created By:: </span> {{ item.user.username }}</p>
+                <p><a href="{% url 'mainapp-blogsview' id=item.id %}" class="btn btn-warning">View</a></p>
+                <a href="{% url 'mainapp-edit' id=item.id %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'mainapp-delete' id=item.id %}" class="btn btn-danger">Delete</a> 
+            </div>
+        </div>
+    <br>
+{% endfor %}
+<div style="text-align: center; margin-bottom: 15px;">
+    <a href="{% url 'mainapp-add' %}" class="btn btn-info">Add</a>
+</div>
+{% endblock content %}
